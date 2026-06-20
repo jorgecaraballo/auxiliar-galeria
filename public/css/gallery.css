@@ -100,6 +100,7 @@
     aspect-ratio: 1 / 1;
     background: #15151a;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .gallery-thumb img {
@@ -107,6 +108,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.2s ease;
+}
+
+.gallery-thumb:hover img {
+    transform: scale(1.04);
 }
 
 .gallery-caption {
@@ -149,4 +155,104 @@
     background: #2a2a35;
     padding: 0.1rem 0.35rem;
     border-radius: 4px;
+}
+
+/* ===== Lightbox (visor a pantalla completa) ===== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+}
+
+.lightbox.is-open {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    color: BurlyWood;
+    font-size: 0.85rem;
+    text-align: center;
+    word-break: break-all;
+    max-width: 90vw;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: BurlyWood;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+}
+
+.lightbox-close:hover {
+    color: #ae10ff;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(42, 42, 53, 0.75);
+    border: 1px solid #ae10ff;
+    color: BurlyWood;
+    font-size: 2rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.lightbox-nav:hover {
+    background: #3a2a4a;
+}
+
+.lightbox-prev {
+    left: 0.6rem;
+}
+
+.lightbox-next {
+    right: 0.6rem;
+}
+
+@media (max-width: 600px) {
+    .lightbox-nav {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.5rem;
+    }
+    .lightbox-close {
+        font-size: 1.7rem;
+    }
 }

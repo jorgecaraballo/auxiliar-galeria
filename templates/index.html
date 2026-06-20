@@ -15,5 +15,15 @@
     <p class="empty-state-hint">Revisa que <code>IMAGES_DIR</code> en tu <code>.env</code> apunte a la carpeta correcta.</p>
 </div>
 
+<div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightbox-close" class="lightbox-close" title="Cerrar (Esc)">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev" title="Anterior (&larr;)">&lsaquo;</button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-next" title="Siguiente (&rarr;)">&rsaquo;</button>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</div>
+
 <script src="socket.io.min.js"></script>
 <script src="public/js/gallery.js"></script>
