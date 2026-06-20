@@ -1,0 +1,20 @@
+{
+  "name": "auxiliar-galeria",
+  "version": "1.0.0",
+  "description": "Galería de imágenes de solo lectura (Node.js puro) que escanea una carpeta y subcarpetas, muestra miniaturas y se actualiza en vivo vía Socket.IO",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["nodejs", "raspberry-pi", "socket.io", "galeria", "imagenes"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "socket.io": "^4.5.0"
+  }
+}

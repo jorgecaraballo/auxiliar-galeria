@@ -1,0 +1,19 @@
+<div class="gallery-toolbar">
+    <div class="gallery-info">
+        <span id="image-count">0</span> imágenes
+        <span id="scan-status" class="scan-status"></span>
+    </div>
+    <button id="refresh-btn" class="refresh-btn" title="Volver a escanear la carpeta ahora">
+        <span class="refresh-icon">⟳</span> Actualizar
+    </button>
+</div>
+
+<div id="gallery-grid" class="gallery-grid"></div>
+
+<div id="empty-state" class="empty-state">
+    <p>No se encontraron imágenes todavía.</p>
+    <p class="empty-state-hint">Revisa que <code>IMAGES_DIR</code> en tu <code>.env</code> apunte a la carpeta correcta.</p>
+</div>
+
+<script src="socket.io.min.js"></script>
+<script src="public/js/gallery.js"></script>

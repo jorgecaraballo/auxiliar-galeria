@@ -1,0 +1,291 @@
+/* Estilos generales */
+
+/* Reset de estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #202026;
+    font-family: sans-serif;
+    /*color: #CAA;*/
+    color: BurlyWood;
+}
+
+#divLoading{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/*display: flex; /* Para manipular el div interno */
+	justify-content: center; /* Para que se centre de forma horizontal */
+	align-items: center; /* Para que se centre de forma vertical */
+	background: rgba(254,254,255, .65);
+	z-index: 9999;
+	display: none;
+}
+#divLoading img{
+	width: 50px;
+	height: 50px;
+}
+
+  /* Estilos generales para el banner */
+  .banner {
+      width: 100%;         /* Ocupa todo el ancho */
+      max-height: 50vh;    /* No más del 50% de la altura de la pantalla */
+      text-align: center;
+      overflow: hidden;    /* Evita desbordamientos */
+  }
+
+  .banner img {
+      width: 100%;         /* Hace que la imagen ocupe todo el ancho */
+      height: auto;        /* Mantiene la proporción */
+      display: block;      /* Elimina el espacio extra inferior */
+      object-fit: cover;   /* Corta la imagen para ajustarla sin distorsión */
+  }
+
+
+/* domingo 05 octubre 2025 18:35 */
+/* ===== CONTENEDOR PARA IMÁGENES ===== */
+.image-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover opcional para imágenes */
+.image-container img:hover {
+    transform: scale(1.02);
+}
+
+/* ===== CONTENEDOR PARA VIDEOS/IFRAMES (EXISTENTE) ===== */
+/* sábado 20 septiembre 2025 20:31
+ * Estilo CSS para el Iframe de YouTube
+ * Explicación del CSS
+.video-container: Este contenedor tiene un padding-bottom del 56.25%, que corresponde a una relación de aspecto de 16:9 (común para videos). Esto asegura que el contenedor mantenga la proporción correcta.
+height: 0: Establece la altura inicial del contenedor en 0, lo que permite que el padding-bottom controle la altura.
+overflow: hidden: Evita que cualquier contenido que sobresalga del contenedor sea visible.
+iframe: Se posiciona absolutamente dentro del contenedor, ocupando el 100% del ancho y la altura del contenedor.
+ * */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.video-container iframe, .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* Resto de los estilos */
+
+h1, h2, h3, h4, h5 {
+	color: DarkKhaki;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+a {
+    color: Chocolate;
+    /*text-decoration: none;*/
+}
+
+a:hover {
+    color: Coral;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.marco {
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid #ae10ff;
+    border-radius: 5px;
+    max-width: 800px;
+    background: #2a2a35;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para botones */
+button, .download-button {
+    background-color: #ae10ff;
+    color: white;
+    border: 2px solid #ae10ff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover, .download-button:hover {
+    background-color: #8a0ccf;
+    border-color: #8a0ccf;
+}
+
+/* Destacar el primer botón */
+#facebook-button {
+    background-color: blue;
+    border-color: #ff6f61;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+#facebook-button:hover {
+    background-color: darkblue;
+    border-color: #e65a50;
+}
+
+
+
+/* Estilos para .container */
+.container {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box; /* El relleno y el borde se incluyen en el ancho y alto del elemento */
+}
+
+/* Estilos para .mb-3 (margin-bottom: 1rem) */
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+/* Estilos para .p-3 (padding: 1rem) */
+.p-3 {
+    padding: 1rem !important;
+}
+
+/* Estilos para .posicionRelativaEntradas (posición relativa) */
+.posicionRelativaEntradas {
+    position: relative;
+}
+
+/* Estilos para .row */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* Estilos para .justify-content-center */
+.justify-content-center {
+    justify-content: center !important;
+}
+
+/* Estilos para .col-11, .col-md-10, .col-lg-8 */
+.col-11 {
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+
+.col-md-10 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+
+.col-lg-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+/* Estilos para .d-grid */
+.d-grid {
+    display: grid !important;
+}
+
+/* Estilos para .gap-2 (gap: 0.5rem) */
+.gap-2 {
+    gap: 0.5rem !important;
+}
+
+/* Estilos para .text-center */
+.text-center {
+    text-align: center !important;
+}
+
+/* Estilos para <small> */
+small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+/* Estilos para .text-info */
+.text-info {
+    color: DarkKhaki !important;
+}
+
+@media (min-width: 992px) {
+    .col-lg-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .marco {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    button, .download-button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #facebook-button {
+        /*font-size: 1rem;*/
+        padding: 12px 20px;
+    }
+
+      .banner {
+	      /* Ver tarea 4253 para saber la razón por la cual colocamos dvh en lugar de vh */
+	      max-height: 40dvh; /* Reduce la altura en dispositivos móviles */
+      }
+    .col-md-10 {
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}

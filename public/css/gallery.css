@@ -1,0 +1,152 @@
+/* ===== Galería de imágenes ===== */
+
+.gallery-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: #202026;
+    border-bottom: 1px solid #2a2a35;
+}
+
+.gallery-info {
+    font-size: 0.95rem;
+    color: BurlyWood;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#image-count {
+    font-weight: bold;
+    color: #ae10ff;
+}
+
+.scan-status {
+    font-size: 0.8rem;
+    opacity: 0.65;
+}
+
+.refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #2a2a35;
+    color: BurlyWood;
+    border: 1px solid #ae10ff;
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.refresh-btn:hover {
+    background: #3a2a4a;
+}
+
+.refresh-btn:active {
+    transform: scale(0.97);
+}
+
+.refresh-icon {
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+.refresh-btn.is-spinning .refresh-icon {
+    transform: rotate(360deg);
+}
+
+/* Grid responsive: columnas que se ajustan solas según el ancho disponible */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.6rem;
+    padding: 0.85rem;
+}
+
+@media (min-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.85rem;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+.gallery-card {
+    background: #2a2a35;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #15151a;
+    overflow: hidden;
+}
+
+.gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-caption {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: BurlyWood;
+    overflow: hidden;
+}
+
+.gallery-caption-folder {
+    opacity: 0.65;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gallery-caption-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.empty-state {
+    display: none;
+    text-align: center;
+    color: BurlyWood;
+    padding: 3rem 1.5rem;
+    opacity: 0.8;
+}
+
+.empty-state-hint {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.4rem;
+}
+
+.empty-state code {
+    background: #2a2a35;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+}
