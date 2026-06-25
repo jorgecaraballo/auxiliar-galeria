@@ -1,27 +1,57 @@
 <div class="gallery-toolbar">
-    <div class="gallery-info">
-        <span id="image-count">0</span> imágenes
-        <span id="scan-status" class="scan-status"></span>
+    <div class="tab-bar">
+        <button id="tab-photos" class="tab-btn tab-btn--active" data-tab="photos">
+            📷 Fotos <span id="image-count" class="tab-count">0</span>
+        </button>
+        <button id="tab-videos" class="tab-btn" data-tab="videos">
+            🎬 Videos <span id="video-count" class="tab-count">0</span>
+        </button>
     </div>
-    <button id="refresh-btn" class="refresh-btn" title="Volver a escanear la carpeta ahora">
-        <span class="refresh-icon">⟳</span> Actualizar
-    </button>
+    <div class="toolbar-actions">
+        <span id="scan-status" class="scan-status"></span>
+        <button id="refresh-btn" class="refresh-btn" title="Volver a escanear ahora">
+            <span class="refresh-icon">⟳</span> Actualizar
+        </button>
+    </div>
 </div>
 
-<div id="gallery-grid" class="gallery-grid"></div>
-
-<div id="empty-state" class="empty-state">
-    <p>No se encontraron imágenes todavía.</p>
-    <p class="empty-state-hint">Revisa que <code>IMAGES_DIR</code> en tu <code>.env</code> apunte a la carpeta correcta.</p>
+<!-- Panel de Fotos -->
+<div id="panel-photos" class="tab-panel tab-panel--active">
+    <div id="gallery-grid" class="gallery-grid"></div>
+    <div id="empty-photos" class="empty-state">
+        <p>No se encontraron imágenes todavía.</p>
+        <p class="empty-state-hint">Revisa que <code>IMAGES_DIR</code> en tu <code>.env</code> apunte a la carpeta correcta.</p>
+    </div>
 </div>
 
+<!-- Panel de Videos -->
+<div id="panel-videos" class="tab-panel">
+    <div id="video-grid" class="gallery-grid video-grid"></div>
+    <div id="empty-videos" class="empty-state">
+        <p>No se encontraron videos todavía.</p>
+        <p class="empty-state-hint">Revisa que <code>VIDEOS_DIR</code> en tu <code>.env</code> apunte a la carpeta correcta.</p>
+    </div>
+</div>
+
+<!-- Lightbox de imágenes -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
     <button id="lightbox-close" class="lightbox-close" title="Cerrar (Esc)">&times;</button>
-    <button id="lightbox-prev" class="lightbox-nav lightbox-prev" title="Anterior (&larr;)">&lsaquo;</button>
-    <button id="lightbox-next" class="lightbox-nav lightbox-next" title="Siguiente (&rarr;)">&rsaquo;</button>
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev" title="Anterior">&lsaquo;</button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-next" title="Siguiente">&rsaquo;</button>
     <div class="lightbox-content">
         <img id="lightbox-img" src="" alt="">
         <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</div>
+
+<!-- Lightbox de videos -->
+<div id="video-lightbox" class="lightbox video-lightbox" aria-hidden="true">
+    <button id="video-lightbox-close" class="lightbox-close" title="Cerrar (Esc)">&times;</button>
+    <button id="video-lightbox-prev" class="lightbox-nav lightbox-prev" title="Anterior">&lsaquo;</button>
+    <button id="video-lightbox-next" class="lightbox-nav lightbox-next" title="Siguiente">&rsaquo;</button>
+    <div class="lightbox-content">
+        <video id="lightbox-video" controls preload="metadata"></video>
+        <div id="video-lightbox-caption" class="lightbox-caption"></div>
     </div>
 </div>
 
