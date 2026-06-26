@@ -390,6 +390,8 @@
 
 	function loadInitial() {
 		setStatus('Cargando…');
+		countEl.textContent = '…';
+		videoCountEl.textContent = '…';
 
 		var done = 0;
 		function checkDone() {
@@ -401,9 +403,11 @@
 			.then(function(res) { return res.json(); })
 			.then(function(data) {
 				if (!data.error) { appendImages(data.images); }
+				else { countEl.textContent = '0'; }
 				checkDone();
 			})
 			.catch(function() {
+				countEl.textContent = '0';
 				setStatus('Error al cargar fotos');
 				checkDone();
 			});
@@ -412,9 +416,11 @@
 			.then(function(res) { return res.json(); })
 			.then(function(data) {
 				if (!data.error) { appendVideos(data.videos); }
+				else { videoCountEl.textContent = '0'; }
 				checkDone();
 			})
 			.catch(function() {
+				videoCountEl.textContent = '0';
 				setStatus('Error al cargar videos');
 				checkDone();
 			});
