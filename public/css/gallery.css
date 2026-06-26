@@ -22,11 +22,6 @@
     flex-wrap: wrap;
 }
 
-#image-count {
-    font-weight: bold;
-    color: #ae10ff;
-}
-
 .scan-status {
     font-size: 0.8rem;
     opacity: 0.65;
@@ -333,11 +328,14 @@
     background: #ae10ff;
     color: #fff;
     border-radius: 99px;
-    font-size: 0.72rem;
-    font-weight: bold;
-    padding: 0.05rem 0.45rem;
-    min-width: 1.4rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 0.1rem 0.5rem;
+    min-width: 1.6rem;
     text-align: center;
+    letter-spacing: 0.02em;
+    text-shadow: none;
+    line-height: 1.4;
 }
 
 .toolbar-actions {
