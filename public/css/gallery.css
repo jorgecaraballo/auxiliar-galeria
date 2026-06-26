@@ -192,11 +192,47 @@
 }
 
 .lightbox-caption {
-    color: BurlyWood;
-    font-size: 0.85rem;
-    text-align: center;
-    word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
     max-width: 90vw;
+    text-align: center;
+}
+
+.lightbox-caption-name {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.lightbox-caption-path {
+    color: BurlyWood;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    word-break: break-all;
+}
+
+.lightbox-open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.2rem;
+    background: #2a2a35;
+    color: BurlyWood;
+    border: 1px solid #ae10ff;
+    border-radius: 6px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-decoration: none;
+}
+
+.lightbox-open-btn:hover {
+    background: #3a2a4a;
+    color: #fff;
 }
 
 .lightbox-close {

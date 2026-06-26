@@ -241,6 +241,36 @@
 
 	/* ===== Lightbox de imágenes ===== */
 
+	function buildCaption(captionEl, fileName, relPath) {
+		captionEl.innerHTML = '';
+
+		var nameDiv = document.createElement('div');
+		nameDiv.className = 'lightbox-caption-name';
+		nameDiv.textContent = fileName;
+
+		var pathDiv = document.createElement('div');
+		pathDiv.className = 'lightbox-caption-path';
+		pathDiv.textContent = relPath;
+
+		var openBtn = document.createElement('button');
+		openBtn.className = 'lightbox-open-btn';
+		openBtn.title = 'Abrir carpeta en PCManFM con el archivo seleccionado';
+		openBtn.textContent = '📂 Abrir en PCManFM';
+		openBtn.addEventListener('click', function(e) {
+			e.stopPropagation();
+			fetch('api/open?p=' + encodeURIComponent(relPath))
+				.then(function(r) { return r.json(); })
+				.then(function(d) {
+					if (d.error) { alert('No se pudo abrir PCManFM: ' + d.error); }
+				})
+				.catch(function() { alert('Error al comunicarse con el servidor'); });
+		});
+
+		captionEl.appendChild(nameDiv);
+		captionEl.appendChild(pathDiv);
+		captionEl.appendChild(openBtn);
+	}
+
 	function openLightbox(index) {
 		if (index < 0 || index >= imagesOrder.length) { return; }
 		lightboxIndex = index;
@@ -249,7 +279,7 @@
 		if (!img) { return; }
 		lightboxImg.src = 'image?p=' + encodeURIComponent(img.relPath);
 		lightboxImg.alt = img.fileName;
-		lightboxCaption.textContent = img.relPath;
+		buildCaption(lightboxCaption, img.fileName, img.relPath);
 		lightbox.classList.add('is-open');
 		lightbox.setAttribute('aria-hidden', 'false');
 	}
@@ -291,7 +321,7 @@
 		if (!v) { return; }
 		lightboxVideo.src = 'video?p=' + encodeURIComponent(v.relPath);
 		lightboxVideo.load();
-		videoLightboxCaption.textContent = v.fileName;
+		buildCaption(videoLightboxCaption, v.fileName, v.relPath);
 		videoLightbox.classList.add('is-open');
 		videoLightbox.setAttribute('aria-hidden', 'false');
 	}
